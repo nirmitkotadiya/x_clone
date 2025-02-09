@@ -2,8 +2,72 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
     background-color: black;
     color: white;
 }
 
+body {
+    /* Make the page responsive for ultra-wide screen sizes. */
+    max-width: 110rem;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    height: 100dvh;
+}
+
+.navbar {
+    flex: none;
+    width: 18rem;
+    border: 1px solid #3A444C;
+}
+
+.aside {
+    flex: none;
+    width: 25rem;
+    border: 1px solid #3A444C;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #3A444C;
+}
+
+.header {
+    flex: none;
+    height: 4rem;
+    border: 1px solid #3A444C;
+}
+
+.feed {
+    overflow: auto;
+    border: 1px solid #3A444C;
+}
+
+/*
+ * Remove the aside section when screen width is less than 1100px.
+ * Therefore, there will be enough space for main content (i.e. feed).
+*/
+@media (max-width:1100px) {
+    .aside {
+        display: none;
+    }
+}
+
+/* Move the Navbar at the bottom when screen width is less than 600px. */
+@media (max-width:600px) {
+    .main {
+        /* Prevent Navbar from covering content at the bottom. */
+        padding-bottom: 3rem;
+    }
+
+    .navbar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 3rem;
+    }
+}
